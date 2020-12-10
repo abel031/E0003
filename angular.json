@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "E0003"
+  "defaultProject": "E0003",
+  "cli": {
+    "analytics": false
+  }
 }

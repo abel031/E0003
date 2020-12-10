@@ -6,3 +6,33 @@
 <input [disabled]="disabled" id="123" type="text" value="hola"><br><br>
 <button (click)="onClick($event)">OK</button>
 <p [ngClass]="estilos">{{place.city}}</p>
+<p [ngStyle]="carStyle">BMW</p>
+
+<hr>
+<div *ngIf="queEsVar1();then thenBlock else elseBlock">No se que es</div>
+<ng-template #elseBlock>Var1 Fase</ng-template>
+<ng-template #thenBlock>Var1 True</ng-template>
+
+<ul [ngSwitch]="fun()">
+  <li *ngSwitchCase ="1">Element 1</li>
+  <li *ngSwitchCase ="2">Element 2</li>
+  <li *ngSwitchCase ="3">Element 3</li>
+  <li *ngSwitchDefault>Default</li>
+</ul>
+
+<li *ngFor="let car of cars">
+  {{car.Name}} {{car.Cylinders}}
+</li>
+<br>
+<table>
+  <tr>
+    <th>Pos</th>
+    <th>Name</th>
+    <th>Cylinders</th>
+  </tr>
+  <tr *ngFor="let car of cars index as i">
+    <td>{{i}}</td>
+    <td>{{car.Name}}</td>
+    <td>{{car.Cylinders}}</td>
+  </tr>
+</table>

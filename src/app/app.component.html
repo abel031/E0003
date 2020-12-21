@@ -2,7 +2,7 @@
   <h1>Peliculas</h1>
 </header>
 
-  <app-tabla [hidden]="TablaVisible" Calificaciones="{{Calificaciones}}" movies="{{movies}}" (Edit)="Edit($event)"></app-tabla>
+  <app-tabla [hidden]="TablaVisible" (Visualiza)="Edit($event)"></app-tabla>
 
   <div [hidden]="EditarVisible">
     <form class="user-form">

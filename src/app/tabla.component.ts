@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Movie } from './movie';
 
 @Component({
@@ -37,9 +36,8 @@ import { Movie } from './movie';
     `]
 })
 export class TablaComponent implements OnInit {
-
-  @Input() Calificaciones;
-  @Input() movies:Movie[]
+  movies:Movie[]
+  Calificaciones:string[]
   @Output() Visualiza = new EventEmitter();
 
   constructor() { }

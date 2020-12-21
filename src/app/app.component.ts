@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Movie } from "./movie"
+import { TablaComponent } from "./tabla.component"
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,17 @@ import { Movie } from "./movie"
 })
 export class AppComponent {
   
-  TablaVisible:boolean = false;
-  EditarVisible:boolean = true;
+  @ViewChild(TablaComponent) Tabla: TablaComponent
+
+  TablaVisible:boolean = true;
+  EditarVisible:boolean = false;
   Actual = 0;
 
-  Edit($event){
-    var i = $event.value();
+  constructor(){
+    this.movie = this.movies[0];
+  }
+
+  Edit(i){
     this.Cambio();
     this.Actual = i;
     this.movie = this.movies[i];
@@ -21,6 +27,8 @@ export class AppComponent {
   Cambio(){
     this.TablaVisible=!this.TablaVisible;
     this.EditarVisible=!this.EditarVisible;
+    this.Tabla.movies=this.movies;
+    this.Tabla.Calificaciones = this.Calificaciones;
   }
 
   Next(){

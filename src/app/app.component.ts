@@ -1,6 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { Movie } from "./movie"
-import { TablaComponent } from "./tabla.component"
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,94 +6,21 @@ import { TablaComponent } from "./tabla.component"
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  a: number = 0.259;
+  b: number = 1.3495;
+  today: number = Date.now();
+  objectjson: Object = {foo: 'bar', baz: 'qux', nested: {xyz: 3, numbers: [1, 2, 3, 4, 5]}};
+  object: {[key: number]: string} = {2: 'foo', 1: 'bar'};
+  map = new Map([[2, 'foo'], [1, 'bar']]);
+  collection: string[] = ['a', 'b', 'c', 'd'];
+
+  ArrayJsons=[{p0: 1,p1: 'aa', p2: 3, p3: '3'},
+              {p0: 2,p1: 'CC', p2: 2, p3: '2'},
+              {p0: 3,p1: 'BB', p2: 5, p3: '5'},
+              {p0: 4,p1: 'BB', p2: 1, p3: '1'},
+              {p0: 5,p1: 'aa', p2: 2, p3: '4'},    
+              {p0: 6,p1: 'AA', p2: 2, p3: '4'},           
+              {p0: 7,p1: 'AA', p2: 4, p3: '4'}];
   
-  @ViewChild(TablaComponent) Tabla: TablaComponent
-
-  TablaVisible:boolean = true;
-  EditarVisible:boolean = false;
-  Actual = 0;
-
-  constructor(){
-    this.movie = this.movies[0];
-  }
-
-  Edit(i){
-    this.Cambio();
-    this.Actual = i;
-    this.movie = this.movies[i];
-  }
-  Cambio(){
-    this.TablaVisible=!this.TablaVisible;
-    this.EditarVisible=!this.EditarVisible;
-    this.Tabla.movies=this.movies;
-    this.Tabla.Calificaciones = this.Calificaciones;
-  }
-
-  Next(){
-    if(this.Actual<this.movies.length-1) this.Actual++;
-    this.movie = this.movies[this.Actual];
-  }
-
-  Prev(){
-    if(this.Actual>0) this.Actual--;
-    this.movie = this.movies[this.Actual];
-  }
-
-  movie:Movie = {
-    code:0,
-    title:'',
-    director:'',
-    telefonos:[],
-    cast:'',
-    releaseDate:'',
-    calificacion:"",
-    Vista:""
-  }
-  
-  movies: Movie[] = [
-    {
-      code: 1,
-      title: "Zootopia",
-      director: "Byron Howard, Rich Moore",
-      telefonos: ["648210025", "648210025", "648210025"],
-      cast: "Idris Elba, Ginnifer Goodwin, Jason Bateman",
-      releaseDate: "2016-03-04", // "04/03/2016",
-      calificacion: "Buena",
-      Vista: "Vista"
-    },
-    {
-      code: 2,
-      title: "Batman v Superman: Dawn of Justice",
-      director: "Zack Snyder",
-      telefonos: ["648210025", "648210025", "648210025"],
-      cast: "Ben Affleck, Henry Cavill, Amy Adams",
-      releaseDate: "2016-03-25",
-      calificacion: "Buena",
-      Vista: "NoVista"
-    },
-    {
-      code: 3,
-      title: "Captain America: Civil War",
-      director: "Anthony Russo, Joe Russo",
-      telefonos: ["648210025", "648210025", "648210025"],
-      cast: "Scarlett Johansson, Elizabeth Olsen, Chris Evans",
-      releaseDate: "2016-05-23",
-      calificacion: "Buena",
-      Vista: "NoVista"
-    },
-    {
-      code: 4,
-      title: "X-Men: Apocalypse",
-      director: "Bryan Singer",
-      telefonos: ["648210025", "648210025", "648210025"],
-      cast: "Jennifer Lawrence, Olivia Munn, Oscar Isaac",
-      releaseDate: "2016-05-27",
-      calificacion: "Buena",
-      Vista: "NoVista"
-    }
-  ];
-
-  //Nou
-  Calificaciones = ["Mala", "Buena", "Muy Buena", "Excelente"];
-
 }

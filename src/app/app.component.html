@@ -1,13 +1,7 @@
-{{objectjson | json }}
-<br>
-{{b}}
-<br>
-{{b | number:"1.2-3"}}
-<br>
-{{a | percent}}
-<br>
-{{a | currency}}
-<br>
-{{a |currency:"EUR"}}
-<br>
-{{today | date}}
+<h1>Hola</h1>
+
+<app-usuarios></app-usuarios>
+
+<ul *ngFor="let usuario of usuarios">
+    <li>{{usuario.name}}</li>
+</ul>

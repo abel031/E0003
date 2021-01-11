@@ -6,22 +6,19 @@ import { AppComponent } from './app.component';
 import localES from '@angular/common/locales/es';
 import { registerLocaleData} from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { UsuariosComponent } from './depto/usuarios/usuarios.component';
-import { UsuariosService } from './depto/usuarios.service';
 
 registerLocaleData(localES,"es");
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuariosComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     CommonModule
   ],
-  providers: [UsuariosService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

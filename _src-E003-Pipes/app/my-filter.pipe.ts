@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
     name: 'filter'
 })
-export class FilterPipe  implements PipeTransform {
+export class MyFilterPipe  implements PipeTransform {
 
       private searchedItems: Array<any> = [];
       private key: string; private prop: string;

@@ -1,0 +1,8 @@
+<p>Departamentos</p>
+<div *ngFor="let depto of departamentos; let i=index">
+    <a [routerLink]="[ '/empleados', depto.id, depto.name ]">{{depto.name}}</a>
+</div>
+
+<button (click)="IrAVentas()">Ir Vntas</button>
+
+<a routerLink="/">Volver</a>

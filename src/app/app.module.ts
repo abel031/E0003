@@ -6,22 +6,39 @@ import { AppComponent } from './app.component';
 import localES from '@angular/common/locales/es';
 import { registerLocaleData} from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { UsuariosComponent } from './depto/usuarios/usuarios.component';
-import { UsuariosService } from './depto/usuarios.service';
+import { AboutComponent } from './comp/about/about.component';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './comp/home/home.component';
+import { PageNotFoundComponent } from './comp/page-not-found/page-not-found.component';
+import { DeptoComponent } from './comp/depto/depto.component';
+import { EmpleadosComponent } from './comp/depto/empleados/empleados.component';
 
 registerLocaleData(localES,"es");
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsuariosComponent,
+    AboutComponent,
+    HomeComponent,
+    PageNotFoundComponent,
+    DeptoComponent,
+    EmpleadosComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot([
+      {path: '', component:HomeComponent},
+      {path: 'home', component:HomeComponent},
+      {path: 'about', component:AboutComponent},
+      {path: 'depto', component:DeptoComponent},
+      {path: 'empleados/:id/:name', component:EmpleadosComponent},
+      {path: '**', component:PageNotFoundComponent}
+     
+    ])
   ],
-  providers: [UsuariosService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

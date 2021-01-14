@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Iusuario } from '../pojos/iusuario';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
 
-  constructor() { 
+  constructor(private http:HttpClient) { 
     setTimeout( 
       () =>{ 
         this.usu$.next(this.usuarios) 
@@ -25,22 +26,20 @@ export class UsuariosService {
     this.usu$.next(this.usuarios)
   }
 
+  getUsuariosJSON():Observable<Iusuario[]>{
+    return this.http.get<Iusuario[]>(this._url)
+  }
+
   private usu$ = new Subject<Iusuario[]>()
+  private _url:string="/assets/datos/usuarios.json";
+
 
   private usuarios:Iusuario[] =[
     {
-      "id": 1, "name": "Leanne Graham", "username": "Bret", "email": "Sincere@april.biz",
-      "address": {
-        "street": "Kulas Light", "suite": "Apt. 556","city": "Gwenborough","zipcode": "92998-3874",
-        "geo": {"lat": "-37.3159","lng": "81.1496"}
-      }
+      "id": 1, "name": "Leanne Graham", "username": "Bret", "email": "Sincere@april.biz"
     },
     {
-      "id": 2,"name": "Ervin Howell","username": "Antonette","email": "Shanna@melissa.tv",
-      "address": {
-        "street": "Victor Plains","suite": "Suite 879","city": "Wisokyburgh","zipcode": "90566-7771",
-        "geo": {"lat": "-43.9509","lng": "-34.4618"}
-      }
+      "id": 2,"name": "Ervin Howell","username": "Antonette","email": "Shanna@melissa.tv"
     }
     ]
 
